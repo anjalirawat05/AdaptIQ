@@ -1,0 +1,285 @@
+.live-interview {
+    min-height: 100vh;
+    width: 100%;
+    background:
+        radial-gradient(circle at 15% 0%, rgba(4, 207, 166, 0.08), transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(4, 207, 166, 0.05), transparent 40%);
+
+    .live-interview-inner {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 3rem 2rem 5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .live-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+
+        .progress {
+            color: #a8a8a8;
+            font-size: 0.85rem;
+        }
+
+        .badges {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .type-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            background-color: rgba(4, 207, 166, 0.12);
+            color: #04cfa6;
+
+            &.behavioral {
+                background-color: rgba(224, 194, 90, 0.12);
+                color: #e0c25a;
+            }
+        }
+
+        .followup-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            background-color: rgba(168, 168, 168, 0.15);
+            color: #a8a8a8;
+        }
+    }
+
+    .question-card {
+        background-color: #262525;
+        border: 1px solid #3a3939;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        textarea {
+            resize: vertical;
+            background-color: #1c1b1b;
+            border: 1px solid #3a3939;
+            border-radius: 0.5rem;
+            color: whitesmoke;
+            font-family: inherit;
+            font-size: 0.9rem;
+            padding: 0.75rem;
+
+            &:focus {
+                outline: none;
+                border-color: #04cfa6;
+            }
+        }
+
+        .action-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+    }
+
+    .decision-card {
+        background-color: #262525;
+        border: 1px solid #3a3939;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .decision-prompt {
+            color: #c9c9c9;
+            font-size: 0.95rem;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+    }
+
+    .primary-btn,
+    .secondary-btn,
+    .end-btn {
+        outline: none;
+        border: 1px solid #04cfa6;
+        background: none;
+        color: #04cfa6;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.65rem 1.1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover:not(:disabled) {
+            background-color: rgba(4, 207, 166, 0.12);
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+
+    .secondary-btn {
+        border-color: #a8a8a8;
+        color: #a8a8a8;
+
+        &:hover:not(:disabled) {
+            background-color: rgba(168, 168, 168, 0.12);
+        }
+    }
+
+    .end-btn {
+        border-color: #ff6b6b;
+        color: #ff6b6b;
+
+        &:hover:not(:disabled) {
+            background-color: rgba(255, 107, 107, 0.12);
+        }
+    }
+
+    .error-note {
+        color: #ff6b6b;
+        font-size: 0.85rem;
+        margin: 0;
+    }
+
+    .answer-score {
+        padding: 0.85rem 1rem;
+        background-color: #1c1b1b;
+        border: 1px solid #3a3939;
+        border-radius: 0.5rem;
+        font-size: 0.85rem;
+
+        .score-dims {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            color: #c9c9c9;
+            font-weight: 600;
+        }
+
+        .score-evidence {
+            margin-top: 0.5rem;
+            color: #a8a8a8;
+            font-style: italic;
+        }
+
+        .review-flag {
+            margin-top: 0.5rem;
+            color: #e0c25a;
+            font-weight: 600;
+        }
+
+        &.needs-review {
+            border-color: #e0c25a;
+        }
+    }
+
+    .summary-scores {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        color: #c9c9c9;
+        font-weight: 600;
+        background-color: #262525;
+        border: 1px solid #3a3939;
+        border-radius: 0.75rem;
+        padding: 1rem 1.25rem;
+    }
+
+    .performance-report {
+        background-color: #262525;
+        border: 1px solid #3a3939;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .verdict-badge {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background-color: rgba(224, 194, 90, 0.12);
+            color: #e0c25a;
+
+            &.strong_hire,
+            &.hire {
+                background-color: rgba(125, 211, 165, 0.12);
+                color: #7dd3a5;
+            }
+
+            &.no_hire {
+                background-color: rgba(255, 107, 107, 0.12);
+                color: #ff6b6b;
+            }
+        }
+
+        .perf-summary {
+            color: #c9c9c9;
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        .perf-column {
+            h3 {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+
+            ul {
+                padding-left: 1.1rem;
+                color: #c9c9c9;
+                font-size: 0.88rem;
+                line-height: 1.6;
+            }
+        }
+    }
+
+    .perf-unavailable {
+        color: #a8a8a8;
+        font-size: 0.85rem;
+        font-style: italic;
+    }
+
+    .back-link {
+        color: #04cfa6;
+        font-size: 0.9rem;
+        text-decoration: none;
+        align-self: flex-start;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

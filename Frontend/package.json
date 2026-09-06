@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "adaptive-interviewer-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
+    "axios": "^1.19.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "react-router": "^7.15.1",
+    "react-router-dom": "^7.18.2",
     "sass": "^1.100.0",
     "tailwindcss": "^4.3.0"
   },
