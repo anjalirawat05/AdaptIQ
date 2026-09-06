@@ -32,7 +32,7 @@ authrouter.post("/logout", authcontrollers.logoutusercontroller)
  * @description this route is used to get current logged in  user details
  * @access private
  */
-authrouter.get("/get_me", authMiddleware.authuser, authcontrollers.getmecontroller)
+authrouter.get("/get-me", authMiddleware.authuser, authcontrollers.getmecontroller)
 
  
 

@@ -2,14 +2,14 @@ const jwt = require('jsonwebtoken');
 const blacklistModel = require('../models/blacklisttoken-model');
 
 
-const authuser = (req,res,next)=>{
+const authuser = async (req,res,next)=>{
     const token = req.cookies.token;
 
     if(!token){
         return res.status(401).json({message:"token not found"})
     }
         // Check if the token is blacklisted
-    const isBlacklisted = blacklistModel.findOne({ token });
+    const isBlacklisted = await blacklistModel.findOne({ token });
 
         if(isBlacklisted) {
             return res.status(401).json({ message: "Token is blacklisted" });

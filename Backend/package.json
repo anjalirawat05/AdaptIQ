@@ -1,14 +1,25 @@
 {
+  "name": "adaptive-interviewer-backend",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "test": "jest"
   },
   "dependencies": {
+    "@google/genai": "^2.18.0",
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.6.2",
-    "nodemon": "^3.1.14"
+    "multer": "^2.3.0",
+    "nodemon": "^3.1.14",
+    "pdf-parse": "^2.4.5",
+    "puppeteer": "^25.10.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "jest": "^30.5.1"
   }
 }
