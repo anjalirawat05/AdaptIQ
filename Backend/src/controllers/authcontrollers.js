@@ -47,7 +47,14 @@ async function registerusercontroller(req, res){
 
 const token = jwt.sign({id: newuser._id, username: newuser.username}, process.env.JWT_SECRET, {expiresIn: "1d"})
 
-   res.cookie("token", token)
+   const cookieOptions = {
+    httpOnly: true, // Prevents client-side JS from reading the cookie
+    secure: true,   // Required for cross-origin cookies (forces HTTPS)
+    sameSite: 'none', // Allows the cookie to be sent cross-domain
+    maxAge: 24 * 60 * 60 * 1000 // 1 day
+};
+
+res.cookie("token", token, cookieOptions);
 
    return res.status(201).json({
     message: "user registered successfully",
@@ -96,7 +103,14 @@ const ispasswordcorrect = await bcrypt.compare(
 console.log("PASSWORD CORRECT:", ispasswordcorrect);
      const token = jwt.sign({id : isuserexists._id, username: isuserexists.username}, process.env.JWT_SECRET, {expiresIn: "1d"})
 
-        res.cookie("token", token)
+        const cookieOptions = {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
+            maxAge: 24 * 60 * 60 * 1000
+        };
+
+        res.cookie("token", token, cookieOptions);
         return res.status(200).json({
             message: "user logged in successfully",
             user: {
@@ -131,7 +145,13 @@ async function logoutusercontroller(req, res){
         }
         const blacklistedtoken = await BlacklistTokenModel.create({token})
         
-        res.clearCookie("token")
+        const cookieOptions = {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none'
+};
+
+res.clearCookie("token", cookieOptions);
         return res.status(200).json({
             message: "user logged out successfully"
         })
