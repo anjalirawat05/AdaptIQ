@@ -78,18 +78,22 @@ const token = jwt.sign({id: newuser._id, username: newuser.username}, process.en
 
    try { const {email, password} = req.body
 
-    const isuserexists = await UserModel.findOne({email})
-    if(!isuserexists){
-        return res.status(400).json({
-            message: "invalid email or password"
-        })
-    }
-    const ispasswordcorrect = await bcrypt.compare(password, isuserexists.password)
-    if(!ispasswordcorrect){
-        return res.status(400).json({
-            message: "invalid email or password"
-        })
-    }
+   const isuserexists = await UserModel.findOne({ email });
+
+console.log("USER FOUND:", !!isuserexists);
+
+if (!isuserexists) {
+    return res.status(400).json({
+        message: "invalid email or password"
+    });
+}
+
+const ispasswordcorrect = await bcrypt.compare(
+    password,
+    isuserexists.password
+);
+
+console.log("PASSWORD CORRECT:", ispasswordcorrect);
      const token = jwt.sign({id : isuserexists._id, username: isuserexists.username}, process.env.JWT_SECRET, {expiresIn: "1d"})
 
         res.cookie("token", token)
